@@ -12,6 +12,7 @@
       padding: 0;
       text-align: center;
     }
+
     .container {
       max-width: 480px;
       margin: 80px auto;
@@ -20,24 +21,29 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
+
     .header {
       font-size: 22px;
       font-weight: 600;
       color: #444;
       margin-bottom: 16px;
     }
+
     .illustration {
       margin-bottom: 16px;
     }
+
     .illustration img {
       width: 180px;
       border-radius: 50%;
     }
+
     .instructions {
       font-size: 16px;
       color: #555;
       margin: 16px 0 12px 0;
     }
+
     .button {
       width: 90%;
       max-width: 320px;
@@ -54,28 +60,30 @@
       display: block;
       text-decoration: none;
     }
+
     .button.secondary {
       background-color: transparent;
       color: #6264a7;
       border: 2px solid #6264a7;
-      text-decoration: none;
     }
+
     .footer {
       font-size: 13px;
       color: #666;
       margin-top: 24px;
     }
+
     .footer a {
       color: #6264a7;
       text-decoration: none;
       margin: 0 8px;
     }
-    /* Remove underline from anchor wrapping button */
+
     a.button-link {
       text-decoration: none;
       display: block;
     }
-    /* Modal styles */
+
     .modal {
       display: none;
       position: fixed;
@@ -86,6 +94,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .modal-content {
       background: #fff;
       border-radius: 10px;
@@ -95,18 +104,21 @@
       text-align: center;
       box-shadow: 0 6px 24px rgba(0,0,0,0.18);
     }
+
     .modal-content h3 {
       color: #6264a7;
       margin-bottom: 0.7rem;
     }
+
     .modal-content p {
       color: #444;
       margin-bottom: 1.1rem;
     }
+
     .modal .button {
       margin: 0.5rem 0 0 0;
-      text-decoration: none;
     }
+
     .close-btn {
       background: none;
       color: #6264a7;
@@ -116,8 +128,31 @@
       margin-top: 1rem;
       text-decoration: underline;
     }
+
     .close-btn:hover {
       text-decoration: none;
+    }
+
+    /* Mobile notice styling */
+    .mobile-message {
+      display: none;
+      max-width: 90%;
+      margin: 80px auto;
+      padding: 32px 24px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-size: 17px;
+      color: #444;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        display: none;
+      }
+      .mobile-message {
+        display: block;
+      }
     }
   </style>
 </head>
@@ -139,7 +174,10 @@
     </div>
   </div>
 
-  <!-- Modal -->
+  <div class="mobile-message">
+    ⚠️ This experience is optimized for desktop. Please open this page from a computer to join the Zoho Teams app or play voicemail messages.
+  </div>
+
   <div class="modal" id="noAppModal" tabindex="-1" role="dialog" aria-modal="true">
     <div class="modal-content">
       <h3>Zoho Teams App Not Installed</h3>
@@ -163,7 +201,6 @@
       e.preventDefault();
       showModal();
     });
-    // Optional: allow ESC to close modal
     document.addEventListener('keydown', function(e) {
       if(e.key === "Escape") closeModal();
     });
